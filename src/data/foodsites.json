@@ -1,0 +1,13 @@
+{
+    "foodsites":[
+        {"site_name":"South Philly Punks with Lunch", 
+        "address":"NE Corner of Broad and Snyder",
+        "zip_code":"19148"},
+        {"site_name":"South Philly Punks with Lunch", 
+        "address":"NE Corner of Broad and Snyder",
+        "zip_code":"19148"},
+        {"site_name":"South Philly Punks with Lunch", 
+        "address":"Mifflin Square Park",
+        "zip_code":"19148"}
+    ]
+}

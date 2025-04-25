@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import foodjson from "../../data/foodsites.json";
 const response = await fetch(
   "https://services.arcgis.com/fLeGjb7u4uXqeF9q/arcgis/rest/services/free_meal_sites/FeatureServer/0/query?where=1%3D1&objectIds=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&collation=&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnTrueCurves=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token="
 );
@@ -12,11 +13,31 @@ const sites = data.features.filter(
     site.attributes.zip_code === "19107" ||
     site.attributes.zip_code === "19109"
 );
+const foodsitesfilter = foodjson.foodsites.filter(
+  (foodsite) =>
+    foodsite.zip_code === "19102" ||
+    foodsite.zip_code === "19103" ||
+    foodsite.zip_code === "19106" ||
+    foodsite.zip_code === "19107" ||
+    foodsite.zip_code === "19109"
+);
 ---
 
 <Layout>
   <h1>Food in Center City</h1>
-
+  <ul class="list-none">
+    {
+      foodsitesfilter.map((foodsite) => (
+        <li class="py-3">
+          {foodsite.site_name}
+          <br />
+          {foodsite.address}
+          <br />
+          {foodsite.zip_code}
+        </li>
+      ))
+    }
+  </ul>
   <ul class="list-none">
     {
       sites.map((site) => (
