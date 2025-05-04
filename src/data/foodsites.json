@@ -2,12 +2,21 @@
     "foodsites":[
         {"site_name":"South Philly Punks with Lunch", 
         "address":"NE Corner of Broad and Snyder",
-        "zip_code":"19148"},
-        {"site_name":"South Philly Punks with Lunch", 
-        "address":"NE Corner of Broad and Snyder",
-        "zip_code":"19148"},
+        "zip_code":"19148",
+        "category_type":"Food Site",
+        "website":"https://punkswithlunch.com/",
+        "schedule":"Sundays and Wednesdays from 1:30 - 3:30"},
         {"site_name":"South Philly Punks with Lunch", 
         "address":"Mifflin Square Park",
-        "zip_code":"19148"}
+        "zip_code":"19148",
+        "category_type":"Food Site",
+        "website":"https://punkswithlunch.com/",
+        "schedule":"Fridays from 1:30 - 3:30"},
+        {"site_name":"Food Not Bombs West Philly", 
+        "address":"60th and Market El Stop",
+        "zip_code":"19139",
+        "category_type":"Food Site",
+        "website":"https://www.instagram.com/fnbsolidarity/",
+        "schedule":"Fridays at 5pm"}
     ]
 }
