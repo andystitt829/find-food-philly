@@ -59,26 +59,25 @@ const foodsitesfilter = foodjson.foodsites.filter(
           <a href=`${site.attributes.website}`>Website</a>
           {site.attributes.hours_mon_start1 && <p>Mondays: {site.attributes.hours_mon_start1} - {site.attributes.hours_mon_end1}</p>}
           {site.attributes.hours_mon_start2 && <p>Mondays: {site.attributes.hours_mon_start2} - {site.attributes.hours_mon_end2}</p>}
-          {site.attributes.hours_mon_exceptions && <p>Mondays: {site.attributes.hours_mon_exceptions}</p>}
+          {site.attributes.hours_mon_exceptions && <p>{site.attributes.hours_mon_exceptions}</p>}
           {site.attributes.hours_tues_start1 && <p>Tuesdays: {site.attributes.hours_tues_start1} - {site.attributes.hours_tues_end1}</p>}
           {site.attributes.hours_tues_start2 && <p>Tuesdays: {site.attributes.hours_tues_start2} - {site.attributes.hours_tues_end2}</p>}
-          {site.attributes.hours_tues_exceptions && <p>Tuesdays: {site.attributes.hours_tues_exceptions}</p>}          
+          {site.attributes.hours_tues_exceptions && <p>{site.attributes.hours_tues_exceptions}</p>}          
           {site.attributes.hours_wed_start1 && <p>Wednesdays: {site.attributes.hours_wed_start1} - {site.attributes.hours_wed_end1}</p>}
           {site.attributes.hours_wed_start2 && <p>Wednesdays: {site.attributes.hours_wed_start2} - {site.attributes.hours_wed_end2}</p>}
-          {site.attributes.hours_wed_exceptions && <p>Wednesdays: {site.attributes.hours_wed_exceptions}</p>}          
+          {site.attributes.hours_wed_exceptions && <p>{site.attributes.hours_wed_exceptions}</p>}          
           {site.attributes.hours_thurs_start1 && <p>Thursdays: {site.attributes.hours_thurs_start1} - {site.attributes.hours_thurs_end1}</p>}
           {site.attributes.hours_thurs_start2 && <p>Thursdays: {site.attributes.hours_thurs_start2} - {site.attributes.hours_thurs_end2}</p>}
-          {site.attributes.hours_thurs_exceptions && <p>Thursdays: {site.attributes.hours_thurs_exceptions}</p>}          
+          {site.attributes.hours_thurs_exceptions && <p>{site.attributes.hours_thurs_exceptions}</p>}          
           {site.attributes.hours_fri_start1 && <p>Fridays: {site.attributes.hours_fri_start1} - {site.attributes.hours_fri_end1}</p>}
           {site.attributes.hours_fri_start2 && <p>Fridays: {site.attributes.hours_fri_start2} - {site.attributes.hours_fri_end2}</p>}
-          {site.attributes.hours_fri_exceptions && <p>Fridays: {site.attributes.hours_fri_exceptions}</p>}          
+          {site.attributes.hours_fri_exceptions && <p>{site.attributes.hours_fri_exceptions}</p>}          
           {site.attributes.hours_sat_start1 && <p>Saturdays: {site.attributes.hours_sat_start1} - {site.attributes.hours_sat_end1}</p>}
           {site.attributes.hours_sat_start2 && <p>Saturdays: {site.attributes.hours_sat_start2} - {site.attributes.hours_sat_end2}</p>}
-          {site.attributes.hours_sat_exceptions && <p>Saturdays: {site.attributes.hours_sat_exceptions}</p>}          
+          {site.attributes.hours_sat_exceptions && <p>{site.attributes.hours_sat_exceptions}</p>}          
           {site.attributes.hours_sun_start1 && <p>Sundays: {site.attributes.hours_sun_start1} - {site.attributes.hours_sun_end1}</p>}
           {site.attributes.hours_sun_start2 && <p>Sundays: {site.attributes.hours_sun_start2} - {site.attributes.hours_sun_end2}</p>}
-          {site.attributes.hours_sun_exceptions && <p>Sundays: {site.attributes.hours_sun_exceptions}</p>}
-
+          {site.attributes.hours_sun_exceptions && <p>{site.attributes.hours_sun_exceptions}</p>}
         </li>
       ))
     }

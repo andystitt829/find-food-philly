@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import foodjson from "../../data/foodsites.json";
 const response = await fetch(
   "https://services.arcgis.com/fLeGjb7u4uXqeF9q/arcgis/rest/services/free_meal_sites/FeatureServer/0/query?where=1%3D1&objectIds=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=*&returnGeometry=true&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&collation=&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnTrueCurves=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token="
 );
@@ -20,6 +21,22 @@ const sites = data.features.filter(
     site.attributes.zip_code === "19140" ||
     site.attributes.zip_code === "19141"
 );
+const foodsitesfilter = foodjson.foodsites.filter(
+  (foodsite) =>
+    foodsite.zip_code === "19120" ||
+    foodsite.zip_code === "19121" ||
+    foodsite.zip_code === "19122" ||
+    foodsite.zip_code === "19123" ||
+    foodsite.zip_code === "19125" ||
+    foodsite.zip_code === "19126" ||
+    foodsite.zip_code === "19130" ||
+    foodsite.zip_code === "19132" ||
+    foodsite.zip_code === "19133" ||
+    foodsite.zip_code === "19134" ||
+    foodsite.zip_code === "19137" ||
+    foodsite.zip_code === "19140" ||
+    foodsite.zip_code === "19141"
+);
 ---
 
 <Layout>
@@ -27,17 +44,57 @@ const sites = data.features.filter(
 
   <ul class="list-none">
     {
+      foodsitesfilter.map((foodsite) => (
+      <li class="py-8 border-b-2">
+          {foodsite.site_name}
+          <br />
+          {foodsite.address}
+          <br />
+          {foodsite.zip_code}
+          <br />
+          {foodsite.category_type}
+          <br />
+          <a href=`${foodsite.website}`>Website</a>
+          {foodsite.schedule && <p>{foodsite.schedule}</p>}
+        </li>
+      ))
+    }
+  </ul>
+
+  <ul class="list-none">
+    {
       sites.map((site) => (
-        <li class="py-3">
+        <li class="py-8 border-b-2">
           {site.attributes.site_name}
           <br />
           {site.attributes.address}
           <br />
           {site.attributes.zip_code}
-          <br />
-          {site.attributes.phone_number}
-          <br />
+          {site.attributes.phone_number && <div>{site.attributes.phone_number}</div>}
           {site.attributes.category_type}
+          <br />
+          <a href=`${site.attributes.website}`>Website</a>
+          {site.attributes.hours_mon_start1 && <p>Mondays: {site.attributes.hours_mon_start1} - {site.attributes.hours_mon_end1}</p>}
+          {site.attributes.hours_mon_start2 && <p>Mondays: {site.attributes.hours_mon_start2} - {site.attributes.hours_mon_end2}</p>}
+          {site.attributes.hours_mon_exceptions && <p>{site.attributes.hours_mon_exceptions}</p>}
+          {site.attributes.hours_tues_start1 && <p>Tuesdays: {site.attributes.hours_tues_start1} - {site.attributes.hours_tues_end1}</p>}
+          {site.attributes.hours_tues_start2 && <p>Tuesdays: {site.attributes.hours_tues_start2} - {site.attributes.hours_tues_end2}</p>}
+          {site.attributes.hours_tues_exceptions && <p>{site.attributes.hours_tues_exceptions}</p>}          
+          {site.attributes.hours_wed_start1 && <p>Wednesdays: {site.attributes.hours_wed_start1} - {site.attributes.hours_wed_end1}</p>}
+          {site.attributes.hours_wed_start2 && <p>Wednesdays: {site.attributes.hours_wed_start2} - {site.attributes.hours_wed_end2}</p>}
+          {site.attributes.hours_wed_exceptions && <p>{site.attributes.hours_wed_exceptions}</p>}          
+          {site.attributes.hours_thurs_start1 && <p>Thursdays: {site.attributes.hours_thurs_start1} - {site.attributes.hours_thurs_end1}</p>}
+          {site.attributes.hours_thurs_start2 && <p>Thursdays: {site.attributes.hours_thurs_start2} - {site.attributes.hours_thurs_end2}</p>}
+          {site.attributes.hours_thurs_exceptions && <p>{site.attributes.hours_thurs_exceptions}</p>}          
+          {site.attributes.hours_fri_start1 && <p>Fridays: {site.attributes.hours_fri_start1} - {site.attributes.hours_fri_end1}</p>}
+          {site.attributes.hours_fri_start2 && <p>Fridays: {site.attributes.hours_fri_start2} - {site.attributes.hours_fri_end2}</p>}
+          {site.attributes.hours_fri_exceptions && <p>{site.attributes.hours_fri_exceptions}</p>}          
+          {site.attributes.hours_sat_start1 && <p>Saturdays: {site.attributes.hours_sat_start1} - {site.attributes.hours_sat_end1}</p>}
+          {site.attributes.hours_sat_start2 && <p>Saturdays: {site.attributes.hours_sat_start2} - {site.attributes.hours_sat_end2}</p>}
+          {site.attributes.hours_sat_exceptions && <p>{site.attributes.hours_sat_exceptions}</p>}          
+          {site.attributes.hours_sun_start1 && <p>Sundays: {site.attributes.hours_sun_start1} - {site.attributes.hours_sun_end1}</p>}
+          {site.attributes.hours_sun_start2 && <p>Sundays: {site.attributes.hours_sun_start2} - {site.attributes.hours_sun_end2}</p>}
+          {site.attributes.hours_sun_exceptions && <p>{site.attributes.hours_sun_exceptions}</p>}
         </li>
       ))
     }
